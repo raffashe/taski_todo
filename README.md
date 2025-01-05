@@ -1,6 +1,6 @@
 # Taski Todo App
 
-<img width="1500" alt="capa" src="https://github.com/user-attachments/assets/a8a2d84f-9d2c-4d2f-99c3-ccf6bfaf0d1c" />
+![taski app](https://github.com/user-attachments/assets/cf0c5297-8125-4943-9c64-e4db28d7fecc)
 
 ## Descrição do Projeto
 O **Taski Todo App** é um aplicativo de gerenciamento de tarefas desenvolvido utilizando Flutter. Este projeto foi construído com foco em boas práticas de desenvolvimento, como Clean Code e arquitetura MVVM (Model-View-ViewModel). O objetivo é permitir a criação, listagem e gerenciamento de tarefas de forma simples e eficiente, com suporte a armazenamento offline utilizando Hive.
