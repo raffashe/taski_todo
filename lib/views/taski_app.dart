@@ -9,6 +9,7 @@ class TaskiApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       title: 'Taski Todo',
+      debugShowCheckedModeBanner: false,
       home: HomeView(),
     );
   }
