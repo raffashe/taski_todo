@@ -10,7 +10,8 @@ class TaskViewModel extends ChangeNotifier {
     Task(title: 'Task 4', description: 'Description 4', isCompleted: false),
     Task(title: 'Task 5', description: 'Description 5', isCompleted: false),
     Task(title: 'Task 6', description: 'Description 6', isCompleted: false),
-    // Adicione outras tarefas
+
+    ///lista dos itens put hive - dados mock
   ];
 
   List<Task> get tasks => _tasks;
