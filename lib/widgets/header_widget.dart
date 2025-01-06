@@ -14,32 +14,40 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(26),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SvgPicture.asset(
-            'assets/taski_logo.svg',
-            semanticsLabel: 'Taski Logo',
-            height: 32,
-          ),
-          Row(
-            children: [
-              Text(
-                'Welcome, $userName',
-                style: AppTextStyles.title,
-              ),
-              const SizedBox(width: 12),
-              CircleAvatar(
-                radius: 20,
-                backgroundImage: const AssetImage('assets/usuario.jpeg'),
-                backgroundColor: Colors.grey[200],
-              ),
-            ],
-          ),
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            SvgPicture.asset(
+              'assets/taski_icon.svg',
+              semanticsLabel: 'Taski Logo',
+              height: 32,
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            Text(
+              "Taski",
+              style: AppTextStyles.title,
+            )
+          ],
+        ),
+        Row(
+          children: [
+            Text(
+              "$userName",
+              style: AppTextStyles.title,
+            ),
+            const SizedBox(width: 12),
+            CircleAvatar(
+              radius: 20,
+              backgroundImage: const AssetImage('assets/usuario.jpeg'),
+              backgroundColor: Colors.grey[200],
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

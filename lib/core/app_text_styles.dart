@@ -14,6 +14,20 @@ class AppTextStyles {
   static final TextStyle subtitle = GoogleFonts.urbanist(
     fontSize: 16,
     fontWeight: FontWeight.w600, // SemiBold
+    color: AppColors.stateBlue,
+  );
+
+  /// Subtítulo
+  static final TextStyle subtitlesearch = GoogleFonts.urbanist(
+    fontSize: 16,
+    fontWeight: FontWeight.w600, // SemiBold
+    color: AppColors.statePurple,
+  );
+
+  /// Subtitulo card
+  static final TextStyle subtitlecard = GoogleFonts.urbanist(
+    fontSize: 16,
+    fontWeight: FontWeight.w700, // SemiBold
     color: AppColors.statePurple,
   );
 
