@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../core/app_routes.dart';
+import 'package:taski_todo/core/app_routes.dart';
 import 'home/home_view.dart';
 
 class TaskiApp extends StatelessWidget {
@@ -16,6 +16,11 @@ class TaskiApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(
           color: Colors.white,
         ),
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          backgroundColor: Colors.white,
+        ),
+        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blue),
       ),
       initialRoute: AppRoutes.home,
       onGenerateRoute: AppRoutes.generateRoute,

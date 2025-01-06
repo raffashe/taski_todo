@@ -15,13 +15,11 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      backgroundColor: AppColors.white,
+      backgroundColor: Colors.white,
       currentIndex: currentIndex,
       onTap: (int index) {
-        /// Chama a função de tap para definir o estado
         onTap(index);
 
-        /// Navega para a rota correta usando pushReplacementNamed para evitar empilhamento de páginas
         switch (index) {
           case 0:
             if (currentIndex != 0) {

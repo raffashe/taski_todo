@@ -37,6 +37,11 @@ class AppTextStyles {
     fontWeight: FontWeight.w700, // Bold
     color: AppColors.statePurple,
   );
+  static final TextStyle titleTrash = GoogleFonts.urbanist(
+    fontSize: 18,
+    fontWeight: FontWeight.w600, // Bold
+    color: AppColors.fireRed,
+  );
 
   /// Label botão criação
   static final TextStyle buttonLabel = GoogleFonts.urbanist(
