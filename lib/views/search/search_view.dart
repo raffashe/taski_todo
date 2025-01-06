@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:taski_todo/widgets/bottom_nav_bar_widget.dart';
 import 'package:taski_todo/widgets/card_task_widget.dart';
 import 'package:taski_todo/widgets/header_widget.dart';
-import 'package:taski_todo/widgets/search_input_widget';
+import 'package:taski_todo/utils/dialog_utils.dart';
 import '../../viewmodel/task_viewmodel.dart';
 import '../../viewmodel/search_input_viewmodel.dart';
+import '../../widgets/search_input_widget';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -94,6 +95,21 @@ class _SearchViewState extends State<SearchView> {
                                 title: task.title,
                                 description: task.description,
                                 isCompleted: task.isCompleted,
+                                onToggleCompletion: () {
+                                  taskViewModel.toggleCompletion(task);
+                                },
+                                onDelete: () {
+                                  showDeleteConfirmationDialog(
+                                    context,
+                                    task,
+                                    () {
+                                      taskViewModel.deleteTask(task);
+                                      Navigator.pop(context);
+                                    },
+                                  );
+                                },
+                                showMoreIcon: !task.isCompleted,
+                                isDoneView: false,
                               ),
                             );
                           },

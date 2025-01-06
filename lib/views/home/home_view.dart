@@ -24,7 +24,11 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
-    final tasks = context.watch<TaskViewModel>().tasks;
+    final tasks = context
+        .watch<TaskViewModel>()
+        .tasks
+        .where((task) => !task.isCompleted)
+        .toList();
 
     return Scaffold(
       body: Container(
@@ -50,6 +54,14 @@ class _HomeViewState extends State<HomeView> {
                       title: task.title,
                       description: task.description,
                       isCompleted: task.isCompleted,
+                      onToggleCompletion: () {
+                        context.read<TaskViewModel>().toggleCompletion(task);
+                      },
+                      onDelete: () {
+                        context.read<TaskViewModel>().deleteTask(task);
+                      },
+                      showMoreIcon: true,
+                      isDoneView: true,
                     ),
                   );
                 },
