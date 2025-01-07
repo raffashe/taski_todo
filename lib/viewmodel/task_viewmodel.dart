@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
-import '../models/create_task_model.dart';
+import '../modals/task_modal.dart';
 
 class TaskViewModel extends ChangeNotifier {
-  final List<Task> _tasks = [
-    Task(title: 'Task 1', description: 'Description 1', isCompleted: false),
-    Task(title: 'Task 2', description: 'Description 2', isCompleted: false),
-    Task(title: 'Task 3', description: 'Description 3', isCompleted: false),
-    Task(title: 'Task 4', description: 'Description 4', isCompleted: false),
-    Task(title: 'Task 5', description: 'Description 5', isCompleted: false),
-    Task(title: 'Task 6', description: 'Description 6', isCompleted: false),
-  ];
+  final List<Task> _tasks = [];
 
   List<Task> get tasks => _tasks;
   List<Task> get completedTasks =>
       _tasks.where((task) => task.isCompleted).toList();
+
+  /// Cria uma nova tarefa
+  void createTask(String title, String description) {
+    if (title.isNotEmpty && description.isNotEmpty) {
+      final newTask = Task(
+        title: title,
+        description: description,
+        isCompleted: false,
+      );
+      _tasks.add(newTask);
+      notifyListeners(); // Notifica para atualizar a UI
+    }
+  }
 
   /// Alterna o estado de conclusão de uma tarefa
   void toggleCompletion(Task task) {
@@ -36,7 +42,7 @@ class TaskViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Método de pesquisa (não alterado)
+  /// Método de pesquisa
   List<Task> searchTasks(String query) {
     return _tasks.where((task) {
       return task.title.toLowerCase().contains(query.toLowerCase()) ||

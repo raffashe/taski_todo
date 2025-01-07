@@ -7,7 +7,7 @@ import 'package:taski_todo/widgets/header_widget.dart';
 import 'package:taski_todo/utils/dialog_utils.dart';
 import '../../viewmodel/task_viewmodel.dart';
 import '../../viewmodel/search_input_viewmodel.dart';
-import '../../widgets/search_input_widget';
+import '../../widgets/search_input_widget.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -20,11 +20,9 @@ class _SearchViewState extends State<SearchView> {
   int _selectedIndex = 2;
   final TextEditingController _textController = TextEditingController();
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  void _onItemTapped(int index) => setState(() {
+        _selectedIndex = index;
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -109,7 +107,6 @@ class _SearchViewState extends State<SearchView> {
                                   );
                                 },
                                 showMoreIcon: !task.isCompleted,
-                                isDoneView: false,
                               ),
                             );
                           },

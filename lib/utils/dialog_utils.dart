@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taski_todo/widgets/confirmation_dialog_widget.dart';
-import '../../models/create_task_model.dart';
+import '../modals/task_modal.dart';
 
 Future<void> showDeleteConfirmationDialog(
   BuildContext context,

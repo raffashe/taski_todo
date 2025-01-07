@@ -36,7 +36,7 @@ class TitleWidget extends StatelessWidget {
           ),
         ),
         Text(
-          "You’ve got $taskCount tasks to do.",
+          "You've got $taskCount tasks to do.",
           style: AppTextStyles.subtitle,
         ),
       ],

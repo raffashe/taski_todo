@@ -8,11 +8,11 @@ class SearchInput extends StatefulWidget {
   final ValueChanged<String>? onChanged;
 
   const SearchInput({
-    Key? key,
+    super.key,
     required this.textController,
     required this.hintText,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   _SearchInputState createState() => _SearchInputState();
@@ -31,15 +31,13 @@ class _SearchInputState extends State<SearchInput> {
     super.dispose();
   }
 
-  void _onTextChanged() {
-    setState(() {});
-  }
+  void _onTextChanged() => setState(() {});
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       controller: widget.textController,
-      onChanged: widget.onChanged,  
+      onChanged: widget.onChanged,
       style: AppTextStyles.subtitlesearch,
       decoration: InputDecoration(
         hintText: widget.hintText,
@@ -63,10 +61,11 @@ class _SearchInputState extends State<SearchInput> {
         ),
         suffixIcon: widget.textController.text.isNotEmpty
             ? IconButton(
-                icon: const Icon(Icons.cancel_sharp, size: 16, color: AppColors.stateBlue),
+                icon: const Icon(Icons.cancel_sharp,
+                    size: 16, color: AppColors.stateBlue),
                 onPressed: () {
                   widget.textController.clear();
-                  widget.onChanged?.call(''); 
+                  widget.onChanged?.call('');
                   setState(() {});
                 },
               )
