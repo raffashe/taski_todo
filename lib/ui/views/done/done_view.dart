@@ -42,7 +42,7 @@ class _DoneViewState extends State<DoneView> {
                   "Completed Tasks",
                   style: AppTextStyles.title,
                 ),
-                const DeleteAllButton(),
+                if (completedTasks.isNotEmpty) const DeleteAllButton(),
               ],
             ),
             const SizedBox(height: 36),

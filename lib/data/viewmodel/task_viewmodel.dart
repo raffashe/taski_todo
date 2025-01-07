@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../core/utils/deleted_notification_utils.dart';
 import '../database/database.dart';
 import '../models/task_model.dart';
 
@@ -50,21 +51,27 @@ class TaskViewModel extends ChangeNotifier {
   }
 
   /// Exclui uma tarefa
-  void deleteTask(Task task) {
+  void deleteTask(Task task, BuildContext context) {
     final taskIndex = _tasks.indexOf(task);
     Database.deleteTask(taskIndex);
 
     /// Remove do banco de dados
     _tasks.remove(task);
+
+    /// Chama a notificação após a exclusão
+    showTaskDeletionNotification(context);
+
     notifyListeners();
   }
 
   /// Excluir todas as tarefas concluídas
-  void deleteAllCompletedTasks() {
+  void deleteAllCompletedTasks(BuildContext context) {
     _tasks.removeWhere((task) => task.isCompleted);
     Database.clearTasks();
 
     /// Limpa todas as tarefas no banco
+    showTaskDeletionNotification(context);
+
     notifyListeners();
   }
 

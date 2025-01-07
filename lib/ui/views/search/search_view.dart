@@ -102,7 +102,7 @@ class _SearchViewState extends State<SearchView> {
                                     context,
                                     task,
                                     () {
-                                      taskViewModel.deleteTask(task);
+                                      taskViewModel.deleteTask(task, context);
                                       Navigator.pop(context);
                                     },
                                   );

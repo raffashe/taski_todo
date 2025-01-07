@@ -32,7 +32,9 @@ class DoneTaskList extends StatelessWidget {
                         context,
                         task,
                         () {
-                          context.read<TaskViewModel>().deleteTask(task);
+                          context
+                              .read<TaskViewModel>()
+                              .deleteTask(task, context);
                           Navigator.of(context).pop();
                         },
                       );
