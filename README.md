@@ -66,8 +66,8 @@ lib/
 ## Configuração do Ambiente
 
 ### Requisitos
-- Flutter SDK 3.x ou superior.
-- Dart SDK 3.x ou superior.
+- Flutter SDK 3.6.0 ou superior.
+- Dart SDK ^3.5.4 ou superior.
 
 ### Instalação
 1. Clone o repositório:
@@ -92,6 +92,3 @@ lib/
    ```
 
 ---
-
-## Licença
-Este projeto está licenciado sob a MIT License - veja o arquivo [[LICENSE](https://chatgpt.com/c/LICENSE)](LICENSE) para mais detalhes.
