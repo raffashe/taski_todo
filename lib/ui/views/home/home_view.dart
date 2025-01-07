@@ -81,7 +81,9 @@ class _HomeViewState extends State<HomeView> {
                                   .toggleCompletion(task);
                             },
                             onDelete: () {
-                              context.read<TaskViewModel>().deleteTask(task);
+                              context
+                                  .read<TaskViewModel>()
+                                  .deleteTask(task, context);
                             },
                             showMoreIcon: true,
                           ),

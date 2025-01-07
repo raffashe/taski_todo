@@ -24,7 +24,7 @@ class DeleteAllButton extends StatelessWidget {
       context,
       null,
       () {
-        context.read<TaskViewModel>().deleteAllCompletedTasks();
+        context.read<TaskViewModel>().deleteAllCompletedTasks(context);
         Navigator.of(context).pop();
       },
     );

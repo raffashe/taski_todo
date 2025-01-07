@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taski_todo/core/constants/app_colors.dart';
 import 'package:taski_todo/core/constants/app_text_styles.dart';
-import 'package:taski_todo/core/utils/notification_utils.dart';
+import 'package:taski_todo/core/utils/completed_notification_utils.dart';
 
 class CardTask extends StatefulWidget {
   final String title;
