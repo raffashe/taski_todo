@@ -20,15 +20,45 @@ O projeto foi estruturado seguindo o padrão MVVM:
 
 ```
 lib/
-├── core/               # Utilitários e constantes globais
-├── models/             # Modelos de dados (TaskModel)
-├── services/           # Serviços, como acesso ao banco de dados
-├── views/              # Telas (UI)
-│   ├── home/           # Tela inicial
-│   ├── task_form/      # Tela de criação de tarefas
-│   ├── completed/      # Tela de tarefas concluídas
-├── viewmodels/         # Lógica de negócios para cada tela
-├── widgets/            # Componentes reutilizáveis
+├── core/                     # Utilitários e constantes globais
+│   ├── constants/            # Definições constantes da aplicação
+│   │   ├── app_colors.dart   # Paleta de cores da aplicação
+│   │   ├── app_routes.dart   # Rotas de navegação
+│   │   ├── app_text_styles.dart # Estilos de texto
+│   │   ├── app_theme.dart    # Configuração de tema da aplicação
+│   ├── utils/                # Utilitários compartilhados
+│       ├── dialog_utils.dart # Funções utilitárias para diálogos
+│       ├── notification_utils.dart # Funções utilitárias para notificações
+│
+├── data/                     # Serviços de dados e modelos
+│   ├── database/             # Acesso ao banco de dados
+│   │   ├── database.dart     # Configuração e manipulação do banco de dados
+│   ├── models/               # Modelos de dados
+│       ├── search_input_model.dart # Modelo para entrada de pesquisa
+│       ├── task_model.dart   # Modelo de tarefa
+│       ├── task_model.g.dart # Código gerado para o modelo de tarefa
+│
+├── viewmodel/                # Lógica de negócios e estados
+│   ├── search_input_viewmodel.dart # Gerencia o estado da pesquisa
+│   ├── task_viewmodel.dart   # Gerencia o estado das tarefas
+│
+├── ui/                       # Telas e componentes da interface do usuário
+│   ├── views/                # Telas principais
+│   │   ├── create/           # Tela de criação de tarefas
+│   │   ├── done/             # Tela de tarefas concluídas
+│   │   ├── home/             # Tela inicial
+│   │   ├── search/           # Tela de pesquisa de tarefas
+│   ├── widgets/              # Componentes reutilizáveis da interface
+│       ├── dialog/           # Widgets relacionados a diálogos
+│       ├── done/             # Widgets para tarefas concluídas
+│       ├── modal/            # Widgets modais
+│       ├── nav/              # Widgets de navegação
+│       ├── search/           # Widgets para funcionalidade de pesquisa
+│       ├── ui/               # Widgets gerais de IU
+│
+├── main.dart                 # Ponto de entrada da aplicação
+└── taski_app.dart            # Configuração principal da aplicação
+
 ```
 
 ---
