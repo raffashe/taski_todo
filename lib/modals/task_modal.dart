@@ -1,8 +1,6 @@
 class Task {
   String title;
-
   String description;
-
   bool isCompleted;
 
   Task({

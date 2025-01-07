@@ -38,7 +38,6 @@ class DoneTaskList extends StatelessWidget {
                       );
                     },
                     showMoreIcon: false,
-                    isDoneView: false,
                   ),
                 );
               },

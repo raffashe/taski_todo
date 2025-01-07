@@ -3,7 +3,6 @@ import 'package:taski_todo/core/app_text_styles.dart';
 import 'package:taski_todo/widgets/bottom_nav_bar_widget.dart';
 import 'package:taski_todo/widgets/done_task_list.dart';
 import 'package:taski_todo/widgets/header_widget.dart';
-
 import '../../widgets/delete_all_widget.dart';
 
 class DoneView extends StatefulWidget {
@@ -16,11 +15,9 @@ class DoneView extends StatefulWidget {
 class _DoneViewState extends State<DoneView> {
   int _selectedIndex = 3;
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
+  void _onItemTapped(int index) => setState(() {
+        _selectedIndex = index;
+      });
 
   @override
   Widget build(BuildContext context) {

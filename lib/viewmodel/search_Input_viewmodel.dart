@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:taski_todo/models/search_input_model.dart';
+import '../modals/search_input_model.dart';
 
 class SearchInputViewModel extends ChangeNotifier {
   final SearchInputModel _model;
