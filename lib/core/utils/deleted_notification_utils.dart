@@ -10,7 +10,7 @@ void showTaskDeletionNotification(BuildContext context) {
           SizedBox(width: 8),
           Text(
             'Task deleted successfully!',
-            style: AppTextStyles.subtitle,
+            style: AppTextStyles.subtitle(context),
           ),
         ],
       ),

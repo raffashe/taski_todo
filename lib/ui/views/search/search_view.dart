@@ -5,9 +5,9 @@ import 'package:taski_todo/ui/widgets/nav/bottom_nav_bar_widget.dart';
 import 'package:taski_todo/ui/widgets/ui/card_task_widget.dart';
 import 'package:taski_todo/ui/widgets/ui/header_widget.dart';
 import 'package:taski_todo/core/utils/dialog_utils.dart';
+import '../../../core/constants/app_text_styles.dart';
 import '../../../data/viewmodel/search_Input_viewmodel.dart';
 import '../../../data/viewmodel/task_viewmodel.dart';
-
 import '../../widgets/search/search_input_widget.dart';
 
 class SearchView extends StatefulWidget {
@@ -27,9 +27,12 @@ class _SearchViewState extends State<SearchView> {
 
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.all(26.0),
+        margin: EdgeInsets.all(screenWidth * 0.07),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -37,7 +40,7 @@ class _SearchViewState extends State<SearchView> {
               userName: 'Raffaela',
               avatarUrl: 'assets/usuario.jpg',
             ),
-            SizedBox(height: 32),
+            SizedBox(height: screenHeight * 0.04),
             SearchInput(
               textController: _textController,
               hintText: 'Search',
@@ -46,7 +49,7 @@ class _SearchViewState extends State<SearchView> {
                 viewModel.updateText(query);
               },
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.04),
             Expanded(
               child: Consumer<TaskViewModel>(
                 builder: (context, taskViewModel, child) {
@@ -61,9 +64,13 @@ class _SearchViewState extends State<SearchView> {
                         SvgPicture.asset(
                           'assets/search.svg',
                           semanticsLabel: 'Taski Logo',
-                          height: 200,
+                          height: screenWidth * 0.3,
                         ),
-                        Text("Do a search to see the tasks.")
+                        SizedBox(height: screenHeight * 0.02),
+                        Text(
+                          "Do a search to see the tasks.",
+                          style: AppTextStyles.subtitle(context),
+                        ),
                       ],
                     ));
                   }
@@ -78,10 +85,13 @@ class _SearchViewState extends State<SearchView> {
                             SvgPicture.asset(
                               'assets/no_found.svg',
                               semanticsLabel: 'Taski Logo',
-                              height: 60,
+                              height: screenWidth * 0.25,
                             ),
-                            SizedBox(height: 20),
-                            Text("No result found")
+                            SizedBox(height: screenHeight * 0.02),
+                            Text(
+                              "No result found",
+                              style: AppTextStyles.subtitle(context),
+                            ),
                           ],
                         ))
                       : ListView.builder(
@@ -89,7 +99,8 @@ class _SearchViewState extends State<SearchView> {
                           itemBuilder: (context, index) {
                             final task = filteredTasks[index];
                             return Padding(
-                              padding: const EdgeInsets.only(top: 16),
+                              padding:
+                                  EdgeInsets.only(top: screenHeight * 0.02),
                               child: CardTask(
                                 title: task.title,
                                 description: task.description,

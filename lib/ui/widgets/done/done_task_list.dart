@@ -10,16 +10,26 @@ class DoneTaskList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final completedTasks = context.watch<TaskViewModel>().completedTasks;
+    double screenWidth = MediaQuery.of(context).size.width;
 
     return Expanded(
       child: completedTasks.isEmpty
-          ? Center(child: Text("Nenhuma tarefa concluída"))
+          ? Center(
+              child: Text(
+                "Nenhuma tarefa concluída",
+                style: TextStyle(
+                  fontSize: screenWidth * 0.045,
+                ),
+              ),
+            )
           : ListView.builder(
               itemCount: completedTasks.length,
               itemBuilder: (context, index) {
                 final task = completedTasks[index];
                 return Padding(
-                  padding: const EdgeInsets.only(bottom: 16.0),
+                  padding: EdgeInsets.only(
+                    bottom: screenWidth * 0.04,
+                  ),
                   child: CardTask(
                     title: task.title,
                     description: task.description,

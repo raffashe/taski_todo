@@ -7,27 +7,34 @@ class CreateButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Center(
       child: TextButton.icon(
         onPressed: () {
           CreateTaskModal.show(context);
         },
-        icon: const Icon(
+        icon: Icon(
           Icons.add,
-          size: 20.0,
+          size: screenWidth * 0.05,
           color: Colors.blue,
         ),
         label: Text(
           'Create Task',
-          style: AppTextStyles.buttonLabel,
+          style: AppTextStyles.buttonLabel(context).copyWith(
+            fontSize: screenWidth * 0.04,
+          ),
         ),
         style: TextButton.styleFrom(
           backgroundColor: Colors.blue[50],
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12.0),
+            borderRadius: BorderRadius.circular(screenWidth * 0.03),
           ),
-          minimumSize: const Size(100.0, 50.0),
-          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+          minimumSize: Size(screenWidth * 0.25, screenWidth * 0.12),
+          padding: EdgeInsets.symmetric(
+            horizontal: screenWidth * 0.04,
+            vertical: screenWidth * 0.035,
+          ),
         ),
       ),
     );

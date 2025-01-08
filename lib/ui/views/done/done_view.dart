@@ -24,33 +24,35 @@ class _DoneViewState extends State<DoneView> {
   @override
   Widget build(BuildContext context) {
     final completedTasks = context.watch<TaskViewModel>().completedTasks;
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Container(
-        margin: const EdgeInsets.all(26.0),
+        margin: EdgeInsets.all(screenWidth * 0.07),
         child: Column(
           children: [
-            const Header(
+            Header(
               userName: 'Raffaela',
               avatarUrl: 'assets/usuario.jpg',
             ),
-            const SizedBox(height: 32),
+            SizedBox(height: screenHeight * 0.04),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   "Completed Tasks",
-                  style: AppTextStyles.title,
+                  style: AppTextStyles.title(context),
                 ),
                 if (completedTasks.isNotEmpty) const DeleteAllButton(),
               ],
             ),
-            const SizedBox(height: 36),
+            SizedBox(height: screenHeight * 0.05),
             completedTasks.isEmpty
                 ? Center(
                     child: Text(
                       'No completed tasks.',
-                      style: AppTextStyles.subtitle,
+                      style: AppTextStyles.subtitle(context),
                     ),
                   )
                 : const DoneTaskList(),
