@@ -38,7 +38,9 @@ class _CardTaskState extends State<CardTask> {
       child: GestureDetector(
         onTap: toggleExpansion,
         child: Container(
-          constraints: const BoxConstraints(minHeight: 56),
+          constraints: BoxConstraints(
+            minHeight: MediaQuery.of(context).size.height * 0.07,
+          ),
           clipBehavior: Clip.antiAlias,
           decoration: ShapeDecoration(
             color: AppColors.paleWhite,
@@ -72,7 +74,7 @@ class _CardTaskState extends State<CardTask> {
                   Expanded(
                     child: Text(
                       widget.title,
-                      style: AppTextStyles.subtitlecard,
+                      style: AppTextStyles.subtitlecard(context),
                     ),
                   ),
                   if (widget.isCompleted)
@@ -93,11 +95,13 @@ class _CardTaskState extends State<CardTask> {
               if (isExpanded) ...[
                 const SizedBox(height: 8),
                 Padding(
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+                  padding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.height * 0.02,
+                    horizontal: MediaQuery.of(context).size.width * 0.06,
+                  ),
                   child: Text(
                     widget.description,
-                    style: AppTextStyles.body,
+                    style: AppTextStyles.body(context),
                   ),
                 ),
               ],

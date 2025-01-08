@@ -21,15 +21,14 @@ class Header extends StatelessWidget {
           children: [
             SvgPicture.asset(
               'assets/taski_icon.svg',
-              semanticsLabel: 'Taski Logo',
-              height: 32,
+              height: MediaQuery.of(context).size.height * 0.05,
             ),
             SizedBox(
-              width: 5,
+              width: MediaQuery.of(context).size.width * 0.02,
             ),
             Text(
               "Taski",
-              style: AppTextStyles.title,
+              style: AppTextStyles.title(context),
             )
           ],
         ),
@@ -37,11 +36,13 @@ class Header extends StatelessWidget {
           children: [
             Text(
               "$userName",
-              style: AppTextStyles.title,
+              style: AppTextStyles.title(context),
             ),
-            const SizedBox(width: 12),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.02,
+            ),
             CircleAvatar(
-              radius: 20,
+              radius: MediaQuery.of(context).size.width * 0.05,
               backgroundImage: const AssetImage('assets/usuario.jpeg'),
               backgroundColor: Colors.grey[200],
             ),

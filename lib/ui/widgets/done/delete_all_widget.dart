@@ -8,13 +8,18 @@ class DeleteAllButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return TextButton(
       onPressed: () {
         _showDeleteAllConfirmationDialog(context);
       },
       child: Text(
         "Delete all",
-        style: TextStyle(fontSize: 18, color: Colors.red),
+        style: TextStyle(
+          fontSize: screenWidth * 0.045,
+          color: Colors.red,
+        ),
       ),
     );
   }

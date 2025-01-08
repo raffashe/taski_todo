@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:taski_todo/core/constants/app_colors.dart';
 import 'package:taski_todo/core/constants/app_routes.dart';
+import 'package:taski_todo/core/constants/app_text_styles.dart';
 import '../../views/create/create_task_view.dart';
 
 class BottomNavBar extends StatelessWidget {
@@ -16,10 +17,15 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Container(
       width: double.infinity,
-      height: 100,
-      padding: const EdgeInsets.symmetric(horizontal: 46.50, vertical: 24.50),
+      height: screenWidth * 0.28,
+      padding: EdgeInsets.symmetric(
+        horizontal: screenWidth * 0.10,
+        vertical: screenWidth * 0.06,
+      ),
       clipBehavior: Clip.antiAlias,
       decoration: ShapeDecoration(
         color: Colors.white,
@@ -27,7 +33,7 @@ class BottomNavBar extends StatelessWidget {
           side: BorderSide(
             width: 2,
             strokeAlign: BorderSide.strokeAlignOutside,
-            color: Color(0xFFF5F6F9),
+            color: const Color(0xFFF5F6F9),
           ),
         ),
       ),
@@ -42,8 +48,9 @@ class BottomNavBar extends StatelessWidget {
             isSelected: currentIndex == 0,
             onTap: onTap,
             context: context,
+            screenWidth: screenWidth,
           ),
-          const SizedBox(width: 48),
+          SizedBox(width: screenWidth * 0.10),
           _buildNavItem(
             icon: 'assets/create.svg',
             label: 'Create',
@@ -51,11 +58,12 @@ class BottomNavBar extends StatelessWidget {
             isSelected: currentIndex == 1,
             onTap: onTap,
             context: context,
+            screenWidth: screenWidth,
             onTapAction: () {
               CreateTaskModal.show(context);
             },
           ),
-          const SizedBox(width: 48),
+          SizedBox(width: screenWidth * 0.10),
           _buildNavItem(
             icon: 'assets/search_icon.svg',
             label: 'Search',
@@ -63,8 +71,9 @@ class BottomNavBar extends StatelessWidget {
             isSelected: currentIndex == 2,
             onTap: onTap,
             context: context,
+            screenWidth: screenWidth,
           ),
-          const SizedBox(width: 48),
+          SizedBox(width: screenWidth * 0.10),
           _buildNavItem(
             icon: 'assets/done.svg',
             label: 'Done',
@@ -72,6 +81,7 @@ class BottomNavBar extends StatelessWidget {
             isSelected: currentIndex == 3,
             onTap: onTap,
             context: context,
+            screenWidth: screenWidth,
           ),
         ],
       ),
@@ -85,6 +95,7 @@ class BottomNavBar extends StatelessWidget {
     required bool isSelected,
     required Function(int) onTap,
     required BuildContext context,
+    required double screenWidth,
     VoidCallback? onTapAction,
   }) {
     return GestureDetector(
@@ -112,24 +123,21 @@ class BottomNavBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: 24,
-            height: 24,
+            width: screenWidth * 0.05,
+            height: screenWidth * 0.05,
             child: SvgPicture.asset(
               icon,
               semanticsLabel: '$label Icon',
-              height: 24,
               colorFilter: isSelected
                   ? ColorFilter.mode(AppColors.blue, BlendMode.srcATop)
                   : ColorFilter.mode(AppColors.mutedAzure, BlendMode.srcATop),
             ),
           ),
-          const SizedBox(height: 5),
+          SizedBox(height: screenWidth * 0.012),
           Text(
             label,
-            style: TextStyle(
+            style: AppTextStyles.subtitle(context).copyWith(
               color: isSelected ? AppColors.blue : AppColors.mutedAzure,
-              fontSize: 14,
-              fontFamily: 'Urbanist',
               fontWeight: FontWeight.w600,
             ),
           ),

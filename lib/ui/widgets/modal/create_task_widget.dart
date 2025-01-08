@@ -17,76 +17,90 @@ class CreateTaskWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
+    double screenWidth = MediaQuery.of(context).size.width;
     double availableHeight = screenHeight / 2 - 80;
 
     return SingleChildScrollView(
       child: Container(
-        margin: const EdgeInsets.all(42),
+        margin: EdgeInsets.all(screenWidth * 0.1),
         width: double.infinity,
         height: availableHeight,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(24),
-            topRight: Radius.circular(24),
+            topLeft: Radius.circular(screenWidth * 0.06),
+            topRight: Radius.circular(screenWidth * 0.06),
           ),
         ),
         child: Column(
           children: [
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02),
             TextField(
               controller: titleController,
-              style: AppTextStyles.subtitle,
+              style: AppTextStyles.inputTitle(context).copyWith(
+                fontSize: screenWidth * 0.045,
+              ),
               decoration: InputDecoration(
                 hintText: 'What’s in your mind?',
-                hintStyle: AppTextStyles.subtitle,
-                prefixIcon: const Icon(
+                hintStyle: AppTextStyles.inputTitle(context).copyWith(
+                  fontSize: screenWidth * 0.045,
+                ),
+                prefixIcon: Icon(
                   Icons.check_box_outline_blank,
                   color: AppColors.mutedAzure,
+                  size: screenWidth * 0.06,
                 ),
                 border: InputBorder.none,
               ),
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02),
             Stack(
               children: [
                 TextField(
                   controller: descriptionController,
                   maxLines: null,
                   keyboardType: TextInputType.multiline,
-                  style: AppTextStyles.body,
+                  style: AppTextStyles.body(context).copyWith(
+                    fontSize: screenWidth * 0.04,
+                  ),
                   decoration: InputDecoration(
                     hintText: 'Add a note...',
-                    hintStyle: AppTextStyles.body,
+                    hintStyle: AppTextStyles.body(context).copyWith(
+                      fontSize: screenWidth * 0.04,
+                    ),
                     border: InputBorder.none,
-                    contentPadding:
-                        const EdgeInsets.only(left: 40.0, top: 16.0),
+                    contentPadding: EdgeInsets.only(
+                      left: screenWidth * 0.1,
+                      top: screenHeight * 0.02,
+                    ),
                   ),
                   onChanged: (text) {
-                    if (text.length > 100) {
+                    if (text.length > 300) {
                       descriptionController.text = text.substring(0, 300);
                     }
                   },
                 ),
                 Positioned(
-                  top: 16.0,
-                  left: 10.0,
-                  child: const Icon(
+                  top: screenHeight * 0.02,
+                  left: screenWidth * 0.02,
+                  child: Icon(
                     Icons.edit_rounded,
                     color: AppColors.mutedAzure,
+                    size: screenWidth * 0.06,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: screenHeight * 0.02),
             GestureDetector(
               onTap: onSave,
               child: Align(
                 alignment: Alignment.centerRight,
                 child: Text(
                   'Create',
-                  style: AppTextStyles.subtitle.copyWith(
+                  style: AppTextStyles.buttonLabel(context).copyWith(
                     color: AppColors.blue,
                     fontWeight: FontWeight.bold,
+                    fontSize: screenWidth * 0.045,
                   ),
                   textAlign: TextAlign.end,
                 ),

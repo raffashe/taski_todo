@@ -10,7 +10,7 @@ void showTaskCompletionNotification(BuildContext context) {
           SizedBox(width: 8),
           Text(
             'Task completed!',
-            style: AppTextStyles.subtitle,
+            style: AppTextStyles.subtitle(context),
           ),
         ],
       ),
